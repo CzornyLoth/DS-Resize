@@ -1,0 +1,13 @@
+C:\Users\demon\source\repos\DataChanger_Resizer\DataChanger_Resizer\bin\Debug\DataChanger_Resizer.exe.config
+C:\Users\demon\source\repos\DataChanger_Resizer\DataChanger_Resizer\bin\Debug\DataChanger_Resizer.exe
+C:\Users\demon\source\repos\DataChanger_Resizer\DataChanger_Resizer\bin\Debug\DataChanger_Resizer.pdb
+C:\Users\demon\source\repos\DataChanger_Resizer\DataChanger_Resizer\obj\Debug\DataChanger_Resizer.csprojResolveAssemblyReference.cache
+C:\Users\demon\source\repos\DataChanger_Resizer\DataChanger_Resizer\obj\Debug\DataChanger_Resizer.Form1.resources
+C:\Users\demon\source\repos\DataChanger_Resizer\DataChanger_Resizer\obj\Debug\DataChanger_Resizer.Properties.Resources.resources
+C:\Users\demon\source\repos\DataChanger_Resizer\DataChanger_Resizer\obj\Debug\DataChanger_Resizer.csproj.GenerateResource.Cache
+C:\Users\demon\source\repos\DataChanger_Resizer\DataChanger_Resizer\obj\Debug\DataChanger_Resizer.csproj.CoreCompileInputs.cache
+C:\Users\demon\source\repos\DataChanger_Resizer\DataChanger_Resizer\obj\Debug\DataChanger_Resizer.exe
+C:\Users\demon\source\repos\DataChanger_Resizer\DataChanger_Resizer\obj\Debug\DataChanger_Resizer.pdb
+C:\Users\demon\source\repos\DataChanger_Resizer\DataChanger_Resizer\bin\Debug\XmpCore.dll
+C:\Users\demon\source\repos\DataChanger_Resizer\DataChanger_Resizer\bin\Debug\XmpCore.xml
+C:\Users\demon\source\repos\DataChanger_Resizer\DataChanger_Resizer\bin\Debug\ExifLib.dll
