@@ -39,13 +39,14 @@ namespace DataChanger_Resizer
                 textBoxDirectory.Refresh();
                 pictureBoxImagePreview.Refresh();
                 var fb = new FolderBrowserDialog();
+                ;
                 if (fb.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
                     currentDir = fb.SelectedPath; //pobierz forder
                     //dodaj wszystkie pliki z ścieżki
                     var dirInfo = new DirectoryInfo(currentDir);
                     var files = dirInfo.GetFiles()
-                        .Where(c => (c.Extension.Equals(".JPG") || c.Extension.Equals(".jpg") || c.Extension.Equals(".JPEG") || c.Extension.Equals(".bmp") || c.Extension.Equals(".png")));
+                        .Where(c => (c.Extension.Equals(".JPG") || c.Extension.Equals(".jpg") || c.Extension.Equals(".JPEG") || c.Extension.Equals(".bmp") || c.Extension.Equals(".png") || c.Extension.Equals("////")));
                     textBoxDirectory.Text = currentDir;
                     foreach (var image in files)
                     {
@@ -122,25 +123,32 @@ namespace DataChanger_Resizer
                 MessageBox.Show("Brak informacji o zdjęciu, brak posiadanej daty przez zdjęcie!!");
             }
             label4.Text = data_wpis;
+          //  var ratio = wid / high;
+            int resizeWidth = 1600;
+            int resizeHeight = 1200;
+
+            //if (ratio * resizeHeight <= 1600)
+            //{
+            //    resizeWidth = (int)Math.Floor(ratio * resizeHeight);
+            //}
+            //else
+            //{
+            //    resizeHeight = (int)Math.Floor(resizeWidth / ratio);
+            //}
+            var resized = ResizeImage(pictureBoxImagePreview.Image, resizeWidth, resizeHeight);
+            pictureBoxImagePreview.Image = resized;
             Graphics g = Graphics.FromImage(pictureBoxImagePreview.Image);
             g.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
-            if (high < 2000 || wid < 2000)
-            {
-                g.DrawString(data_wpis, new Font("Tahoma", 48), Brushes.Red, new PointF(wid - 700, high - 100));
-            }
-            else if (high > 2000 || wid > 2000)
-            {
-                g.DrawString(data_wpis, new Font("Tahoma", 80), Brushes.Red, new PointF(wid - 500, high - 100));
-            }
+            Font fn = new Font("Tahoma", 32);
+            SizeF measure = g.MeasureString(data_wpis, fn);
+            g.DrawString(data_wpis, fn, Brushes.Red, resizeWidth - measure.Width, resizeHeight - measure.Height);
             g.Save();
-            var resized = ResizeImage(pictureBoxImagePreview.Image, 1800, 1600);
             resized.Save(lokalizacja, ImageFormat.Jpeg);
-            label6.Text = "1800 x 1600";
+            label6.Text = $"{resizeWidth} x {resizeHeight}";
             string lokal = currentDir + "\\" + selectedImage.ToString();
             FileInfo fi = new FileInfo(lokal);
             string s = cnv(fi.Length).ToString("0.00");
             label5.Text = s + " MB";
-            pictureBoxImagePreview.Image = resized;
         }
         
         public static Bitmap ResizeImage(Image image, int width, int height)
